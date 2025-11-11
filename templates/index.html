@@ -3,7 +3,7 @@
 <head>
     <title>Descoberta Da Palavra</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styless.css') }}">
+    <link rel="stylesheet" href="../static/styless.css">
 </head>
 <body>
     <div class="card" role="banner" aria-labelledby="page-title">
@@ -11,7 +11,7 @@
         <div class="subtitle"><h2>Será que você consegue acertar?</h2></div>
     </div>
     <div class ="botaoIniciar"> <button class="button-bagual">INICIAR</button> </div>
-    <div class ="botaoRank"> <button class="button-bagual">RANK</button> </div>
-    <script src="script.js"></script>
+    <div class ="botaoRank"> <button id="btn-iniciar-ranking" class="button-bagual">RANK</button> </div>
+    <script src="../static/scripts.js"></script>
 </body>
 </html>
