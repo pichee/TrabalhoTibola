@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const botaoRanking = document.getElementById('btn-iniciar-ranking');
-
-    if (botaoRanking) {
-        botaoRanking.addEventListener('click', function() {
-            // Abre o HTML do ranking
-            window.location.href = '/rank.html'; 
-        });
-    }
-});
+  fetch("/ranking").then(async res => {
+            const data = await res.json();
+            const el = document.createElement("ol");
+            for (let rank of data.ranks) {
+                const li = document.createElement("li");
+                li.textContent = rank.nome + " (" + rank.pontuacao + ")";
+                el.appendChild(li);
+            }
+            document.getElementById("saida").replaceChildren(el);
+        })

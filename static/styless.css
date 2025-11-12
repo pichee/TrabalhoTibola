@@ -82,3 +82,56 @@ body {
   justify-content: center;
   margin-top: -225px;
 }
+
+/* Lista ordenada dentro do container #saida */
+#saida ol{
+  background-color: var(--c4);
+  color: var(--c1);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  border: 2px solid var(--c2);
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 0 var(--c5);
+}
+
+/* Itens da lista */
+/* Lista dentro do container #saida */
+#saida ol {
+  background-color:  var(--c4);
+  padding: 10px 20px; /* reduz espaço interno da lista */
+  margin: 10px 0;     /* espaço externo da lista */
+  border-radius: 8px;
+  list-style: decimal; /* números do ranking */
+}
+
+/* Itens da lista */
+#saida ol li {
+  color: var(--c1);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 10px 20px;  /* reduz um pouco o padding para compactar */
+  border: 2px solid var(--c2);
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 0 var(--c5);
+  margin-bottom: 8px;  /* diminui o espaço entre itens */
+}
+
+/* Hover dos itens */
+#saida ol li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 var(--c5);
+}
+
+#saida {
+  margin-top: -300px; /* quanto menor, mais para cima */
+  padding-top: 0;
+}

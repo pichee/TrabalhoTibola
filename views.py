@@ -1,5 +1,6 @@
 from main import app
 from flask import Flask,render_template,jsonify
+import random
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -24,3 +25,16 @@ def ranking():
 @app.route("/rank")
 def rank():
     return render_template("rank.html")
+
+@app.route("/sortear_palavra")
+def sortear_palavra():
+        with open("palavras.csv", "r", encoding="utf-8") as f:
+            palavras = [linha.strip() for linha in f]
+
+        if palavras:
+            palavra_sorteada = random.choice(palavras)
+            return jsonify({"palavra": palavra_sorteada})
+
+@app.route("/jogar")   
+def jogar():
+    return render_template("jogar.html")
