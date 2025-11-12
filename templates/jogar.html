@@ -2,59 +2,22 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jogo das Letras (8 Letras)</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f3f3f3;
-    text-align: center;
-    padding: 40px;
-  }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">]
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Jogo das Letras</title>
+<link rel="stylesheet" href="../static/stylessjogar.css">
 
-  h1 {
-    color: #333;
-  }
-
-  #palavra {
-    font-size: 2em;
-    letter-spacing: 10px;
-    margin: 20px;
-  }
-
-  .input-area {
-    margin: 20px 0;
-  }
-
-  select, input[type="text"], button {
-    padding: 8px 12px;
-    font-size: 1em;
-    margin: 5px;
-  }
-
-  #mensagem {
-    font-size: 1.2em;
-    margin-top: 20px;
-    color: #555;
-  }
-
-  #container {
-    background-color: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    display: inline-block;
-  }
 </style>
 </head>
 <body>
-  <h1>🎯 Jogo das Letras (8 Letras)</h1>
-
+  <div class="card" role="banner" aria-labelledby="page-title">
+  <h1 id="title">🎯 Jogo das Letras</h1>
+  </div>
   <div id="container">
     <div id="palavra">_ _ _ _ _ _ _ _</div>
 
     <div class="input-area">
-      <label for="letra">Escolha uma letra:</label>
+      <label for="letra" class="Letras">Escolha uma letra:</label>
       <select id="letra"><option value="">--</option></select>
 
       <label for="posicao">Posição:</label>

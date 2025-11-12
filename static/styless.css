@@ -80,7 +80,7 @@ body {
 .botaoRank {
   display: flex;
   justify-content: center;
-  margin-top: -225px;
+  margin-top: -125px;
 }
 
 /* Lista ordenada dentro do container #saida */
@@ -135,3 +135,4 @@ body {
   margin-top: -300px; /* quanto menor, mais para cima */
   padding-top: 0;
 }
+

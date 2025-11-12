@@ -1,0 +1,97 @@
+:root{
+  --bg: #A6550F; 
+  --c1: #EDF2C9;
+  --c2: #BF9649;
+  --c3: #A6550F;
+  --c4: #73330E;
+  --c5: #401D15;
+}
+/*Garante que a página ocupe toda a altura da tela.*/
+html, body {
+  height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    font-family: "Playfair Display", serif;
+    place-items: start center;
+    padding: 24px;
+    padding-top: 5px;
+}
+
+  h1 {
+    color: #333;
+  }
+
+  #palavra {
+    font-size: 2em;
+    letter-spacing: 10px;
+    margin: 20px;
+  }
+
+  .input-area {
+    margin: 20px 0;
+  }
+
+  select, input[type="text"], button {
+    padding: 8px 12px;
+    font-size: 1em;
+    margin: 5px;
+  }
+
+  #mensagem {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #555;
+  }
+
+  #container {
+    background-color: var(--c2);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin-top: 100px;
+  }
+
+#title {
+  display: inline-block;
+  font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 18px;
+  font-size: clamp(36px, 8vw, 120px);
+  letter-spacing: 0.2px;
+  color: #EDF2C9;
+  margin-top: -30px;
+}
+
+#palavra {
+    color: var(--c1);
+}
+
+#tentar{
+  background-color: var(--c4);
+  color: var(--c1);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  border: 2px solid var(--c2);
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 0 var(--c5);
+}
+
+.button-bagual:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--c5);
+}
+
+.Letras{
+    color: var(--c1);
+}
