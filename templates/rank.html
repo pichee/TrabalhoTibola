@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Ranking</title>
+  <meta charset="UTF-8">
+  <title>Ranking</title>
+  <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <h1 class="title title-lines"> Ranking</h1>
-    <div id="saida">Carregando...</div>
+  <h1 class="title title-lines">Ranking</h1>
+  <div id="saida">Carregando...</div>
 
-    <link rel="stylesheet" href="../static/styless.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        const res = await fetch("/ranking");
+        const data = await res.json();
 
-    <script src="../static/scripts.js"></script>
+        const el = document.createElement("ol");
+        for (let rank of data.ranks) {
+          const li = document.createElement("li");
+          li.textContent = `${rank.nome} (${rank.pontuacao})`;
+          el.appendChild(li);
+        }
+
+        document.getElementById("saida").replaceChildren(el);
+      } catch (err) {
+        console.error("Erro ao carregar ranking:", err);
+        document.getElementById("saida").textContent = "Erro ao carregar ranking.";
+      }
+    });
+  </script>
 </body>
 </html>

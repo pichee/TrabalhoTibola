@@ -52,7 +52,7 @@ body {
     background-color: var(--c2);
     border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 20px 0 10px rgba(0, 0, 0, 0.1);
     display: inline-block;
     margin-top: 100px;
   }
@@ -65,7 +65,7 @@ body {
   font-size: clamp(36px, 8vw, 120px);
   letter-spacing: 0.2px;
   color: #EDF2C9;
-  margin-top: -30px;
+  margin-top: -10px;
 }
 
 #palavra {
@@ -87,11 +87,47 @@ body {
   box-shadow: 0 4px 0 var(--c5);
 }
 
-.button-bagual:active {
+#tentar{
   transform: translateY(2px);
   box-shadow: 0 2px 0 var(--c5);
+}
+#tentar:hover {
+  background: var(--c3);
+  color: var(--c1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 var(--c5);
 }
 
 .Letras{
     color: var(--c1);
+}
+
+.posicao{
+  color: var(--c1);
+}
+
+#chutar{
+  background-color: var(--c4);
+  color: var(--c1);
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  border: 2px solid var(--c2);
+  border-radius: 12px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 0 var(--c5);
+}
+
+#chutar{
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--c5);
+}
+#chutar:hover {
+  background: var(--c3);
+  color: var(--c1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 var(--c5);
 }

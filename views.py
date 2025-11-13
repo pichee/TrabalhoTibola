@@ -1,6 +1,6 @@
 from main import app
-from flask import Flask,render_template,jsonify
-import random
+from flask import Flask,render_template,jsonify,request
+import random,csv,os
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -38,3 +38,43 @@ def sortear_palavra():
 @app.route("/jogar")   
 def jogar():
     return render_template("jogar.html")
+
+@app.route("/salvar_ranking", methods=["POST"])
+def salvar_ranking():
+    try:
+        dados = request.get_json()
+        print("📦 Dados recebidos do front-end:", dados)
+
+        dados = request.get_json()
+        nome = dados.get("nome")
+        pontuacao = int(dados.get("pontuacao", 0))
+
+        ranks = []
+        # Lê o CSV atual se existir
+        if os.path.exists("rank.csv"):
+            with open("rank.csv", "r") as f:
+                reader = csv.reader(f)
+                next(reader, None)  # pula cabeçalho
+                for row in reader:
+                    ranks.append({"nome": row[0], "pontuacao": int(row[1])})
+
+        # Adiciona o novo jogador
+        ranks.append({"nome": nome, "pontuacao": pontuacao})
+
+        # Ordena do maior para o menor
+        ranks.sort(key=lambda x: x["pontuacao"], reverse=True)
+
+        # Salva todos de volta no CSV
+        with open("rank.csv", "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["nome", "pontuacao"])  # cabeçalho
+            for r in ranks:
+                writer.writerow([r["nome"], r["pontuacao"]])
+
+        return jsonify({"status": "ok", "ranks": ranks})
+
+    except Exception as e:
+        return jsonify({"status": "erro", "mensagem": str(e)})
+    except Exception as e:
+        print("ERRO NO SALVAR_RANKING:", e)
+        return jsonify({"status": "erro", "detalhe": str(e)}), 500

@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">]
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
 <title>Jogo das Letras</title>
 <link rel="stylesheet" href="../static/stylessjogar.css">
@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="card" role="banner" aria-labelledby="page-title">
-  <h1 id="title">🎯 Jogo das Letras</h1>
+  <h1 id="title"> Jogo das Letras</h1>
   </div>
   <div id="container">
     <div id="palavra">_ _ _ _ _ _ _ _</div>
@@ -20,7 +20,7 @@
       <label for="letra" class="Letras">Escolha uma letra:</label>
       <select id="letra"><option value="">--</option></select>
 
-      <label for="posicao">Posição:</label>
+      <label for="posicao" class="posicao">Posição:</label>
       <select id="posicao"><option value="">--</option></select>
 
       <button id="tentar">Tentar</button>
@@ -32,90 +32,10 @@
     </div>
 
     <div id="mensagem"></div>
+    
   </div>
+  <div id="tempo"> Tempo: 0</div>
 
-<script>
-  // === Lista de palavras de 8 letras ===
-  const palavras = [
-    "ELEFANTE",
-    "COMPUTAR",
-    "PESSOAL",
-    "ANIMALES",
-    "HOSPITAL",
-    "TREINADO",
-    "AVENTURA",
-    "CAMINHAR"
-  ];
-
-  // Sorteia uma palavra
-  const palavraSecreta = palavras[Math.floor(Math.random() * palavras.length)];
-  let progresso = Array(8).fill("_");
-
-  const letraSelect = document.getElementById("letra");
-  const posicaoSelect = document.getElementById("posicao");
-  const mensagem = document.getElementById("mensagem");
-  const palavraDisplay = document.getElementById("palavra");
-
-  // Popula letras A-Z
-  for (let i = 65; i <= 90; i++) {
-    const opt = document.createElement("option");
-    opt.value = String.fromCharCode(i);
-    opt.textContent = String.fromCharCode(i);
-    letraSelect.appendChild(opt);
-  }
-
-  // Popula posições de 1 a 8
-  for (let i = 1; i <= 8; i++) {
-    const opt = document.createElement("option");
-    opt.value = i;
-    opt.textContent = i;
-    posicaoSelect.appendChild(opt);
-  }
-
-  function atualizarDisplay() {
-    palavraDisplay.textContent = progresso.join(" ");
-  }
-
-  document.getElementById("tentar").addEventListener("click", () => {
-    const letra = letraSelect.value;
-    const pos = parseInt(posicaoSelect.value) - 1;
-
-    if (!letra || isNaN(pos)) {
-      mensagem.textContent = "Escolha uma letra e uma posição!";
-      return;
-    }
-
-    if (progresso[pos] !== "_") {
-      mensagem.textContent = "Essa posição já foi preenchida!";
-      return;
-    }
-
-    if (palavraSecreta[pos] === letra) {
-      progresso[pos] = letra;
-      mensagem.textContent = "✅ Acertou a letra!";
-    } else {
-      mensagem.textContent = "❌ Errou, tente outra!";
-    }
-
-    atualizarDisplay();
-
-    if (!progresso.includes("_")) {
-      mensagem.textContent = "🎉 Parabéns! Você descobriu a palavra: " + palavraSecreta;
-    }
-  });
-
-  document.getElementById("chutar").addEventListener("click", () => {
-    const chute = document.getElementById("chute").value.toUpperCase();
-    if (chute === palavraSecreta) {
-      progresso = palavraSecreta.split("");
-      atualizarDisplay();
-      mensagem.textContent = "🎉 Acertou a palavra inteira!";
-    } else {
-      mensagem.textContent = "😞 Palavra errada! Tente novamente.";
-    }
-  });
-
-  atualizarDisplay();
-</script>
+<script src="../static/scriptjogar.js"></script>
 </body>
 </html>
